@@ -6,11 +6,9 @@ import (
 	"strings"
 
 	"rdo/models"
-	"github.com/gin-gonic/gin"
-	"github.com/tjarratt/babble"
-)
 
-var babbler = babble.NewBabbler()
+	"github.com/gin-gonic/gin"
+)
 
 func SessionsNew(c *gin.Context) {
 	if !BeforeAll("", c) {
@@ -42,8 +40,7 @@ func SessionsCreate(c *gin.Context) {
 				rows.StructScan(&user)
 				c.SetCookie("user", user.Encode(), 3600*24*365, "/", "localhost", false, true)
 			} else {
-				babbler.Count = 4
-				phrase := babbler.Babble()
+				phrase := "babbler.Babble"
 				fmt.Println(phrase)
 				m := map[string]interface{}{"email": email, "phrase": phrase, "flavor": "user"}
 				_, err = Db.NamedExec(`INSERT INTO users (email, phrase, flavor) 
