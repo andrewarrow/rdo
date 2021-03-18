@@ -1,8 +1,11 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
-import "rdo/models"
-import "net/http"
+import (
+	"net/http"
+	"rdo/models"
+
+	"github.com/gin-gonic/gin"
+)
 
 func UsersIndex(c *gin.Context) {
 	if !BeforeAll("user", c) {
@@ -18,8 +21,22 @@ func UsersIndex(c *gin.Context) {
 
 }
 func UsersCreate(c *gin.Context) {
-	SetFlash("try again", c)
-	c.Redirect(http.StatusFound, "/")
+	if false {
+		SetFlash("try again", c)
+		c.Redirect(http.StatusFound, "/")
+	} else {
+		//companyName := c.PostForm("company_name")
+		//name := c.PostForm("name")
+		email := c.PostForm("email")
+		flavor := c.PostForm("flavor")
+
+		//db.Insert("users", flavor, companyName, name, email)
+		user := models.User{}
+		user.Email = email
+		user.Flavor = flavor
+		c.SetCookie("user", user.Encode(), 3600, "/", "localhost", false, true)
+		c.Redirect(http.StatusFound, "/")
+	}
 }
 func UsersNew(c *gin.Context) {
 	c.HTML(http.StatusOK, "users__new.tmpl", gin.H{
