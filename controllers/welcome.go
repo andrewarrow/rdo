@@ -3,9 +3,10 @@ package controllers
 import (
 	"net/http"
 
+	"rdo/models"
+
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"rdo/models"
 )
 
 var Db *sqlx.DB
@@ -53,7 +54,7 @@ func BeforeAll(flavor string, c *gin.Context) bool {
 }
 
 func SetFlash(s string, c *gin.Context) {
-	c.SetCookie("flash", s, 3600, "/", "localhost", false, true)
+	c.SetCookie("flash", s, 3600, "/", "", false, true)
 }
 
 func WelcomeIndex(c *gin.Context) {

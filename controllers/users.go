@@ -34,7 +34,7 @@ func UsersCreate(c *gin.Context) {
 		user := models.User{}
 		user.Email = email
 		user.Flavor = flavor
-		c.SetCookie("user", user.Encode(), 3600, "/", "localhost", false, true)
+		c.SetCookie("user", user.Encode(), 3600, "/", "", false, true)
 		c.Redirect(http.StatusFound, "/")
 	}
 }
