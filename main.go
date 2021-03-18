@@ -4,9 +4,9 @@ import (
 	"log"
 	"os"
 
-	"rdo/server"
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
+	"rdo/server"
 )
 
 func main() {
