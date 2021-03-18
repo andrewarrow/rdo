@@ -1,8 +1,57 @@
 {{template "_header" .}}
-  
+
 {{template "_whoami" .}}
-		<div class="box sidebar">RDO</div>
-		<div class="box content">
-			<br /> You have access: {{.user.Flavor}}</div>
+<div class="box sidebar">RDO</div>
+<div class="box content">
+
+<br />
+{{if eq .user.Flavor "Company"}}
+
+Upcoming delicious sessions:
+<br />
+<br />
+<div style="font-size: 14px;">
+Monday June 7, 2021 @ 11am to 2pm:
+<br />
+restaurant1 - <a href="#">link to map</a>
+<br />
+<br />
+Wednesday June 9, 2021 @ 11am to 2pm:
+<br />
+restaurant2 - <a href="#">link to map</a>
+<br />
+<br />
+Friday June 11, 2021 @ 11am to 2pm:
+<br />
+restaurant3 - <a href="#">link to map</a>
+</div>
+
+{{else}}
+
+
+Your bookings:
+<br />
+<br />
+<div style="font-size: 14px;">
+Monday June 7, 2021 @ 11am to 2pm:
+<br />
+companyABC - 50 people, contact is Jane Smith 310-555-1234
+<br />
+<br />
+<br />
+Wednesday June 9, 2021 @ 11am to 2pm:
+<br />
+companyXYZ - 100 people, contact is John Smith 310-555-5555
+<br />
+<br />
+<br />
+Friday June 11, 2021 @ 11am to 2pm:
+<br />
+- pending - check back soon
+</div>
+
+{{end}}
+
+</div>
 
 {{template "_footer" .}}
