@@ -17,6 +17,18 @@ func UsersIndex(c *gin.Context) {
 	})
 
 }
+func UsersCreate(c *gin.Context) {
+	c.Redirect(http.StatusFound, "/")
+}
+func UsersNew(c *gin.Context) {
+	c.HTML(http.StatusOK, "users__new.tmpl", gin.H{
+		"flash":  "",
+		"user":   map[string]string{},
+		"flavor": c.Query("flavor"),
+	})
+
+}
+
 func UsersShow(c *gin.Context) {
 	c.HTML(http.StatusOK, "users__show.tmpl", gin.H{
 		"flash": "",

@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	"rdo/controllers"
 	"github.com/gin-gonic/gin"
+	"rdo/controllers"
 )
 
 func RoutesSetup(router *gin.Engine) {
@@ -17,8 +17,12 @@ func RoutesSetup(router *gin.Engine) {
 	api.GET("/version", controllers.ApiVersion)
 	users := router.Group("/users")
 	users.GET("/", controllers.UsersIndex)
+	users.GET("/:id", controllers.UsersShow)
+
 	user := router.Group("/user")
-	user.GET("/:id", controllers.UsersShow)
+	user.GET("/new", controllers.UsersNew)
+	user.POST("/create", controllers.UsersCreate)
+
 	sessions := router.Group("/sessions")
 	sessions.GET("/new", controllers.SessionsNew)
 	sessions.POST("/", controllers.SessionsCreate)

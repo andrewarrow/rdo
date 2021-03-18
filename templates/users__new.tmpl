@@ -1,0 +1,31 @@
+
+{{template "_header" .}}
+{{template "_whoami" .}}
+		<div class="box sidebar">
+		<a href="/">RDO</a>
+		</div>
+		<div class="box content">
+
+<h1>Sign up</h1>
+
+<br/>
+<br/>
+<form method="POST" action="/user/create">
+{{.flavor}} Name:
+<br/>
+<input name="company_name" type="text" value="" autofocus="true"/>
+<br/>
+Your Name:
+<br/>
+<input name="name" type="text" value=""/>
+<br/>
+Your Email:
+<br/>
+<input name="email" type="text" value=""/>
+<br/>
+<br/>
+<input type="submit" value="Sign Up"/>
+</form>
+
+</div>
+{{template "_footer" .}}

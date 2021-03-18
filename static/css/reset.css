@@ -61,3 +61,7 @@ a:hover,
 a:focus {
     color: #0000DD;
 }
+
+input {
+font-size: 24px;
+}
