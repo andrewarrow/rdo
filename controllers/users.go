@@ -18,6 +18,7 @@ func UsersIndex(c *gin.Context) {
 
 }
 func UsersCreate(c *gin.Context) {
+	SetFlash("try again", c)
 	c.Redirect(http.StatusFound, "/")
 }
 func UsersNew(c *gin.Context) {

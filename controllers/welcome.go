@@ -3,9 +3,9 @@ package controllers
 import (
 	"net/http"
 
-	"rdo/models"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	"rdo/models"
 )
 
 var Db *sqlx.DB
